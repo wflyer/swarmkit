@@ -640,6 +640,7 @@ func (s *Server) checkConfigExistence(tx store.Tx, spec *api.ServiceSpec) error 
 // - Returns `AlreadyExists` if the ServiceID conflicts.
 // - Returns an error if the creation fails.
 func (s *Server) CreateService(ctx context.Context, request *api.CreateServiceRequest) (*api.CreateServiceResponse, error) {
+	return nil, grpc.Errorf(codes.FailedPrecondition, "just for testing")
 	if err := validateServiceSpec(request.Spec); err != nil {
 		return nil, err
 	}
